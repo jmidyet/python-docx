@@ -16,6 +16,7 @@ class _BaseHeaderFooter(ElementProxy):
     Base class for header and footer objects.
     """
 
+<<<<<<< HEAD
     __slots__ = ('_sectPr', '_type')
 
     def __init__(self, element, parent, type):
@@ -56,3 +57,30 @@ class HeaderFooterBody(object):
     The rich-text body of a header or footer. Supports the same rich text
     operations as a document, such as paragraphs and tables.
     """
+||||||| parent of 26d0f0e... hdr: add _BaseHeaderFooter.is_linked_to_previous
+    __slots__ = ()
+=======
+    __slots__ = ('_sectPr', '_type')
+
+    def __init__(self, element, parent, type):
+        super(_BaseHeaderFooter, self).__init__(element, parent)
+        self._sectPr = element
+        self._type = type
+
+    @property
+    def is_linked_to_previous(self):
+        """
+        Boolean representing whether this Header is inherited from
+        a previous section.
+        """
+        ref = self._sectPr.get_headerReference_of_type(self._type)
+        if ref is None:
+            return True
+        return False
+
+
+class Header(_BaseHeaderFooter):
+    """
+    One of the page headers for a section.
+    """
+>>>>>>> 26d0f0e... hdr: add _BaseHeaderFooter.is_linked_to_previous
