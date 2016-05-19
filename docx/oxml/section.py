@@ -10,6 +10,7 @@ from copy import deepcopy
 
 from ..enum.header import WD_HEADER_FOOTER
 from ..enum.section import WD_ORIENTATION, WD_SECTION_START
+<<<<<<< HEAD
 from .simpletypes import (
     ST_RelationshipId, ST_SignedTwipsMeasure, ST_TwipsMeasure
 )
@@ -25,6 +26,15 @@ class CT_HdrFtrRef(BaseOxmlElement):
     various headers and footers for a section.
     """
     rId = RequiredAttribute('r:id', ST_RelationshipId)
+||||||| parent of 26d0f0e... hdr: add _BaseHeaderFooter.is_linked_to_previous
+from .simpletypes import ST_SignedTwipsMeasure, ST_TwipsMeasure
+from .xmlchemy import BaseOxmlElement, OptionalAttribute, ZeroOrOne
+=======
+from .simpletypes import ST_SignedTwipsMeasure, ST_TwipsMeasure
+from .xmlchemy import (
+    BaseOxmlElement, OptionalAttribute, ZeroOrMore, ZeroOrOne
+)
+>>>>>>> 26d0f0e... hdr: add _BaseHeaderFooter.is_linked_to_previous
 
 
 class CT_PageMar(BaseOxmlElement):
