@@ -13,6 +13,7 @@ from .enum.section import WD_SECTION
 from .enum.text import WD_BREAK
 from .section import Section, Sections
 from .shared import ElementProxy, Emu
+from .structured_doc_tag import StructuredDocumentTag
 
 
 class Document(ElementProxy):
@@ -158,6 +159,14 @@ class Document(ElementProxy):
         return self._part.settings
 
     @property
+    def structured_doc_tags(self):
+        """
+        List of |StructuredDocumentTag| objects providing access to each 
+        structured doc tag in this document.
+        """
+        return self._body.structured_doc_tags
+
+    @property
     def styles(self):
         """
         A |Styles| object providing access to the styles in this document.
@@ -213,3 +222,11 @@ class _Body(BlockItemContainer):
         """
         self._body.clear_content()
         return self
+
+    @property
+    def structured_doc_tags(self):
+        """
+        A list containing the structured_doc_tags in this container, in 
+        document order. Read-only.
+        """
+        return [StructuredDocumentTag(sdt, self) for sdt in self._element.strucDocTag_lst]

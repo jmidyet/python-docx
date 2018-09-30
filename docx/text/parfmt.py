@@ -59,6 +59,15 @@ class ParagraphFormat(ElementProxy):
         pPr.first_line_indent = value
 
     @property
+    def is_bullet(self):
+        pPr = self._element.pPr
+        if pPr is None:
+            return False
+        if pPr.numPr:
+            return True
+        return False
+
+    @property
     def keep_together(self):
         """
         |True| if the paragraph should be kept "in one piece" and not broken
