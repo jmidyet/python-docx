@@ -6,3 +6,9 @@
 _scratch/
 Session.vim
 /.tox/
+venv/
+Pipfile
+Pipfile.lock
+.vscode/
+test.py
+Devin_Owen_Resume.docx

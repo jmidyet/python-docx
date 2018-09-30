@@ -31,6 +31,7 @@ class CT_Body(BaseOxmlElement):
     p = ZeroOrMore('w:p', successors=('w:sectPr',))
     tbl = ZeroOrMore('w:tbl', successors=('w:sectPr',))
     sectPr = ZeroOrOne('w:sectPr', successors=())
+    strucDocTag = ZeroOrMore('w:sdt')
 
     def add_section_break(self):
         """
@@ -57,3 +58,12 @@ class CT_Body(BaseOxmlElement):
             content_elms = self[:]
         for content_elm in content_elms:
             self.remove(content_elm)
+
+class CT_StructuredDocumentTag(BaseOxmlElement):
+    tag_props = ZeroOrOne('w:sdtPr')
+    tag_end_character_pros = ZeroOrOne('w:sdtEndPr')
+    tag_content = ZeroOrOne('w:sdtContent', successors=('w:p',))
+
+class CT_StructuredDocumentTagContent(BaseOxmlElement):
+    p = ZeroOrMore('w:p', successors=('w:sectPr',))
+    r = ZeroOrMore('w:r')

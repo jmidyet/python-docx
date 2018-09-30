@@ -70,9 +70,11 @@ from .shared import CT_DecimalNumber, CT_OnOff, CT_String
 from .coreprops import CT_CoreProperties
 register_element_cls('cp:coreProperties', CT_CoreProperties)
 
-from .document import CT_Body, CT_Document
-register_element_cls('w:body',     CT_Body)
-register_element_cls('w:document', CT_Document)
+from .document import CT_Body, CT_Document, CT_StructuredDocumentTag, CT_StructuredDocumentTagContent
+register_element_cls('w:body',       CT_Body)
+register_element_cls('w:document',   CT_Document)
+register_element_cls('w:sdt',        CT_StructuredDocumentTag)
+register_element_cls('w:sdtContent', CT_StructuredDocumentTagContent)
 
 from .numbering import (
     CT_Num, CT_Numbering, CT_NumLvl, CT_NumPr
