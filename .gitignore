@@ -12,3 +12,4 @@ Pipfile.lock
 .vscode/
 test.py
 Devin_Owen_Resume.docx
+.ropeproject/
