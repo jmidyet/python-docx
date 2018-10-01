@@ -1,6 +1,5 @@
-from .xmlchemy import (
-    BaseOxmlElement, OneAndOnlyOne, RequiredAttribute, ZeroOrMore, ZeroOrOne
-)
+from .xmlchemy import BaseOxmlElement, ZeroOrMore
+
 
 class CT_HeaderFooter(BaseOxmlElement):
     tbl = ZeroOrMore('w:tbl', successors=('w:sectPr',))

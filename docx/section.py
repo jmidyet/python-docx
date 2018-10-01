@@ -98,7 +98,7 @@ class Section(ElementProxy):
     @lazyproperty
     def header_first(self):
         """
-        Return the |Header| object representing the default header for this
+        Return the |Header| object representing the first page header for this
         section. A |Header| object is always returned, whether such a header
         is present or not. The header itself is added, updated, or removed
         using the returned object.
