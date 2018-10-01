@@ -95,6 +95,16 @@ class Section(ElementProxy):
         """
         return Header(self._sectPr, self, WD_HEADER_FOOTER.PRIMARY)
 
+    @lazyproperty
+    def header_first(self):
+        """
+        Return the |Header| object representing the default header for this
+        section. A |Header| object is always returned, whether such a header
+        is present or not. The header itself is added, updated, or removed
+        using the returned object.
+        """
+        return Header(self._sectPr, self, WD_HEADER_FOOTER.FIRST_PAGE)
+
     @property
     def header_distance(self):
         """

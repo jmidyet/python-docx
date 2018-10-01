@@ -76,6 +76,9 @@ register_element_cls('w:document',   CT_Document)
 register_element_cls('w:sdt',        CT_StructuredDocumentTag)
 register_element_cls('w:sdtContent', CT_StructuredDocumentTagContent)
 
+from .header import CT_HeaderFooter
+register_element_cls('w:hdr',       CT_HeaderFooter)
+
 from .numbering import (
     CT_Num, CT_Numbering, CT_NumLvl, CT_NumPr
 )
